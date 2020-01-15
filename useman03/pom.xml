@@ -71,9 +71,9 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.13</version>
                 <configuration>
-                    <imageName>192.168.188.131:9111/offcn/microservice-user-web:0.0.1</imageName>
+                    <imageName>192.168.188.131:8086/offcn/microservice-user-web:0.0.1</imageName>
                     <dockerDirectory>${project.basedir}/</dockerDirectory>
-                    <dockerHost>http://192.168.188.128:2375</dockerHost>
+                    <dockerHost>http://192.168.188.132:2375</dockerHost>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
