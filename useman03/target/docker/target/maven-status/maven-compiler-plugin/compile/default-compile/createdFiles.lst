@@ -1,0 +1,6 @@
+com\wzt\service\UserServiceImpl.class
+com\wzt\service\UserService.class
+com\wzt\controller\UserController.class
+com\wzt\po\User.class
+com\wzt\config\FeignConfig.class
+com\wzt\Userman03Start.class

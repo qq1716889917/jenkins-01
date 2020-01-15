@@ -1,0 +1,38 @@
+server:
+  port: 80
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9001/eureka,http://localhost:9002/eureka
+ribbon:
+  ConnectionTimeOut: 5000
+  ReadTimeout: 5000
+  OkToRetryOnAllOperations: false
+  MaxAutoRetriesNextServer: 5
+  MaxAutoRetries: 1
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 75000
+zuul:
+  routes:
+    jingtai1:
+      path: /jingtai001/**
+      url: http://localhost:8001/
+    jingtai2:
+      path: /jingtai002/**
+      url: http://localhost:8002/
+    byservice01:
+      path: /byservice01/**
+      service-id: PROVIDE
+    byservice02:
+      path: /byservice02/**
+      service-id: USEMAN03
+    # 开启重试
+  retryable: true
+spring:
+  application:
+    name: zullfilter

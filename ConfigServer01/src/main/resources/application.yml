@@ -1,0 +1,19 @@
+server:
+  port: 8901
+spring:
+  application:
+    name: ConfigServer
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/qq1716889917/SpringCloudConfig/
+          username: qq1716889917
+          password: IOp123521.
+          search-paths: day04ConfigFile
+          default-label: master
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9001/eureka,http://localhost:9002/eureka

@@ -1,0 +1,42 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9001/eureka,http://localhost:9002/eureka
+server:
+  port: 7003
+spring:
+  application:
+    name: useman03
+  main:
+    allow-bean-definition-overriding: true
+
+# PROVIDE:
+ribbon:
+  # 轮询模式
+  NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+  # 是否对所有操作都进行重试
+  OkToRetryOnAllOperations: true
+  # 切换实例的重试次数
+  MaxAutoRetriesNextServer: 0
+  # 对当前实例的重试次数
+  MaxAutoRetries: 0
+  # Ribbon 的连接超时时间
+  ConnectTimeout: 5000
+  # Ribbon 的数据读取超时时间
+  ReadTimeout: 5000
+logging:
+  level:
+    com:
+      wzt: debug
+# 开启feign的熔断功能
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 15000
